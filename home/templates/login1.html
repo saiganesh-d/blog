@@ -1,0 +1,65 @@
+{% extends "base.html" %}
+
+{% block start %}
+
+    <div class="container8">
+        <div class="BlueBg">
+            <div class="box signin">
+                <h2>already have an acoount?</h2>
+                <button class="signinbtn">signin</button>
+            </div> 
+            <div class="box signun">
+                <h2>dont have an acoount?</h2>
+                <button class="signupbtn">signup</button>
+            </div>
+        </div>
+        <div class="formBx">
+            <div class="form signinform">
+                
+                <div class="form2">
+                    {% csrf_token %}
+                    <h3>Signin</h3>
+                    
+                    <input class="form-control" name="loginUsername" id="loginUsername" type="email" placeholder="name@address.com" autocomplete="off" required>
+                    
+                   
+                    <input class="form-control" name="loginPassword" id="loginPassword" placeholder="Password" type="password"  required>
+                    
+                    
+                    <button class="btn btn-lg btn-block btn-primary" onclick="login()">Sign in</button>
+               
+                </div>
+            <a class="close-absolute mr-md-5 mr-xl-6 pt-5" href="index-2.html"> 
+                <svg class="svg-icon w-3rem h-3rem">
+                  <use xlink:href="#close-1"> </use>
+                </svg></a>
+            </div> 
+            <div class="form signupform">
+                
+                <div class="form2">
+                <h3>Signup</h3>
+                <input class="form-control" name="signupUsername" id="signupUsername" type="email" placeholder="name@address.com" autocomplete="off" required="required" >
+                <input class="form-control" name="loginPassword" id="signupPassword" placeholder="Password" type="password" required = "required">
+                <input class="form-control" name="confirmPassword" id="confirmPassword" placeholder="re enter Password" type="password"  required>
+                <button class="btn btn-lg btn-block btn-primary" onclick="register()">Sign up</button>
+            </div>
+            </div> 
+        </div>
+    </div>
+    <script>
+        const signinbtn = document.querySelector('.signinbtn');
+        const signupbtn = document.querySelector('.signupbtn');
+        const formBx = document.querySelector('.formBx');
+        const body = document.querySelector('body')
+        signupbtn.onclick = function(){
+            formBx.classList.add('active')
+            body.classList.add('active')
+        }
+        signinbtn.onclick = function(){
+            formBx.classList.remove('active')
+            body.classList.remove('active')
+        }
+        
+    </script>
+    
+{% endblock %}
